@@ -19,29 +19,32 @@ public class BatteryHealthCheck implements Function<Battery, Boolean> {
 	}
 
 	private boolean checkTemperature(Battery battery) {
-		if (battery.getTemperature() > BatteryHealthConstants.minTemperature
-				&& battery.getTemperature() < BatteryHealthConstants.maxTemperature) {
+		boolean tempWithinRange = true;
+		if (battery.getTemperature() < BatteryHealthConstants.minTemperature
+				|| battery.getTemperature() > BatteryHealthConstants.maxTemperature) {
 			System.out.println("Battery temperature - " + battery.getTemperature() + " not in range!");
-			return false;
+			tempWithinRange = false;
 		}
-		return true;
+		return tempWithinRange;
 	}
 
 	private boolean checkSoc(Battery battery) {
-		if (battery.getSoc() > BatteryHealthConstants.minSoc && battery.getSoc() < BatteryHealthConstants.maxSoc) {
+		boolean socWithinRange = true;
+		if (battery.getSoc() < BatteryHealthConstants.minSoc || battery.getSoc() > BatteryHealthConstants.maxSoc) {
 			System.out.println("Battery State of Charge - " + battery.getSoc() + " not in range!");
-			return false;
+			socWithinRange = false;
 		}
-		return true;
+		return socWithinRange;
 	}
 
 	private boolean checkChargeRate(Battery battery) {
-		if (battery.getChargeRate() > BatteryHealthConstants.minChargeRate
-				&& battery.getChargeRate() < BatteryHealthConstants.maxChargeRate) {
+		boolean chargeRateWithinRange = true;
+		if (battery.getChargeRate() < BatteryHealthConstants.minChargeRate
+				|| battery.getChargeRate() > BatteryHealthConstants.maxChargeRate) {
+			chargeRateWithinRange = false;
 			System.out.println("Battery Charging rate - " + battery.getChargeRate() + " not in range!");
-			return false;
 		}
-		return true;
+		return chargeRateWithinRange;
 	}
 
 }
