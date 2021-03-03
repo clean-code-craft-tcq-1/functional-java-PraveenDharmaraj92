@@ -36,9 +36,9 @@ public class TestBatteryMgmtSystem {
 	public void test() {
 		Function<Battery, Boolean> batteryHealthChecker = new BatteryHealthCheck();
 		assert (testBatteryHealthPositive(batteryHealthChecker));
-		assert (testTemperatureNegative(batteryHealthChecker));
-		assert (testSocNegative(batteryHealthChecker));
-		assert (testChargeRateNegative(batteryHealthChecker));
+		assert (!testTemperatureNegative(batteryHealthChecker));
+		assert (!testSocNegative(batteryHealthChecker));
+		assert (!testChargeRateNegative(batteryHealthChecker));
 		
 	}
 }
