@@ -1,7 +1,6 @@
 package vitals;
 
 /**
- * @author PDH2COB
  * Class with battery health parameters
  */
 public class BatteryHealthConstants {
