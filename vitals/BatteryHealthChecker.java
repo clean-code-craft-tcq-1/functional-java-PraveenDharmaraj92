@@ -16,11 +16,11 @@ public class BatteryHealthChecker {
 	}
 
 	public boolean checkBatterySocHealth(CheckSocFunction function) {
-		return function.checkRange(battery.getTemperature(), BatteryHealthParameters.SOC);
+		return function.checkRange(battery.getSoc(), BatteryHealthParameters.SOC);
 	}
 
 	public boolean checkBatteryChargeRateHealth(CheckChargeRateFunction function) {
-		return function.checkRange(battery.getTemperature(), BatteryHealthParameters.CHARGE_RATE);
+		return function.checkRange(battery.getChargeRate(), BatteryHealthParameters.CHARGE_RATE);
 	}
 
 	public void checkAndReportBatteryTemperatureHealth(CheckTemperatureFunction function) {
@@ -30,13 +30,13 @@ public class BatteryHealthChecker {
 	}
 
 	public void checkAndReportBatterySocHealth(CheckSocFunction function) {
-		if (!function.checkRange(battery.getTemperature(), BatteryHealthParameters.SOC)) {
+		if (!function.checkRange(battery.getSoc(), BatteryHealthParameters.SOC)) {
 			reportError(BatteryHealthParameters.SOC);
 		}
 	}
 
 	public void checkAndReportBatteryChargeRateHealth(CheckChargeRateFunction function) {
-		if (!function.checkRange(battery.getTemperature(), BatteryHealthParameters.CHARGE_RATE)) {
+		if (!function.checkRange(battery.getChargeRate(), BatteryHealthParameters.CHARGE_RATE)) {
 			reportError(BatteryHealthParameters.CHARGE_RATE);
 		}
 	}
