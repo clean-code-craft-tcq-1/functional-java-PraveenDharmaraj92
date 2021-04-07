@@ -37,11 +37,11 @@ public class TestBatteryMgmtSystem {
 	 */
 	public void test() {
 		//positive cases
-		Battery battery1 = new Battery(12, 0.3f, 56);
+		Battery battery1 = new Battery(12, 0.9f, 56);
 		assert (checkTemperatureTest(battery1));
-		Battery battery2 = new Battery(12, 0.3f, 56);
+		Battery battery2 = new Battery(12, 0.9f, 56);
 		assert(checkSocTest(battery2));
-		Battery battery3 = new Battery(12, 0.3f, 56);
+		Battery battery3 = new Battery(12, 0.9f, 56);
 		assert(checkChargeRateTest(battery3));
 		
 		//negative cases
